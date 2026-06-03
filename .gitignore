@@ -9,3 +9,19 @@ __pycache__/
 .vscode/
 node_modules/
 dist/
+
+# Agent & Workspace files
+brand-guidelines/
+brand-scraper/
+brand_data/
+directives/
+dpdparticle/
+execution/
+frontend-design/
+mcp-builder/
+project_brief/
+ropa/
+skill-creator/
+AGENTS.md
+handoff.md
+login.html
