@@ -1,0 +1,407 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   ropa.css — ROPA Preview Page Styles
+   Matches existing SIB / DPDP design language
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── Layout ──────────────────────────────────────────────────────────── */
+.ropa-layout {
+  display: flex;
+  gap: 24px;
+  padding: 24px 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  min-height: calc(100vh - 200px);
+}
+
+.ropa-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.ropa-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── Title bar ───────────────────────────────────────────────────────── */
+.ropa-title-bar {
+  margin-bottom: 20px;
+}
+
+.ropa-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  margin: 0 0 4px;
+}
+
+.ropa-subtitle {
+  font-size: 13.5px;
+  color: #6B7280;
+  margin: 0;
+}
+
+/* ── Section tabs ────────────────────────────────────────────────────── */
+.ropa-section-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  background: #F3F4F6;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+}
+
+.ropa-section-tab {
+  padding: 9px 16px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #6B7280;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.ropa-section-tab:hover {
+  color: #1F2937;
+  background: rgba(255,255,255,0.5);
+}
+
+.ropa-section-tab.active {
+  background: #fff;
+  color: #991B1B;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.ropa-tab-count {
+  font-size: 10px;
+  font-weight: 700;
+  background: #E5E7EB;
+  color: #6B7280;
+  padding: 1px 6px;
+  border-radius: 8px;
+}
+
+.ropa-section-tab.active .ropa-tab-count {
+  background: #FEF2F2;
+  color: #991B1B;
+}
+
+/* ── Field cards ─────────────────────────────────────────────────────── */
+.ropa-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ropa-field-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 10px;
+  padding: 14px 18px;
+  transition: all 0.2s;
+}
+
+.ropa-field-card:hover {
+  border-color: #D1D5DB;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.ropa-field-warn {
+  border-left: 3px solid #D97706;
+}
+
+.ropa-field-empty {
+  background: #FAFAFA;
+}
+
+.ropa-field-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.ropa-field-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.ropa-field-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ropa-source-badge {
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 6px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.ropa-edit-btn {
+  background: none;
+  border: 1px solid #E5E7EB;
+  border-radius: 6px;
+  padding: 4px 6px;
+  cursor: pointer;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  transition: all 0.15s;
+}
+
+.ropa-edit-btn:hover {
+  background: #F3F4F6;
+  color: #1F2937;
+}
+
+/* ── Field value ─────────────────────────────────────────────────────── */
+.ropa-field-value {
+  min-height: 20px;
+}
+
+.ropa-value-text {
+  font-size: 13.5px;
+  color: #1F2937;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.ropa-value-empty {
+  font-size: 12.5px;
+  color: #9CA3AF;
+  font-style: italic;
+}
+
+/* ── Inline editing ──────────────────────────────────────────────────── */
+.ropa-field-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ropa-input, .ropa-textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1.5px solid #D1D5DB;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+  color: #1F2937;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.ropa-input:focus, .ropa-textarea:focus {
+  outline: none;
+  border-color: #991B1B;
+  box-shadow: 0 0 0 3px rgba(153,27,27,0.08);
+}
+
+.ropa-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.ropa-edit-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.ropa-save-btn {
+  padding: 6px 16px;
+  background: #991B1B;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ropa-save-btn:hover { background: #7F1D1D; }
+
+.ropa-cancel-btn {
+  padding: 6px 16px;
+  background: #F3F4F6;
+  color: #4B5563;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ropa-cancel-btn:hover { background: #E5E7EB; }
+
+/* ── Field warning ───────────────────────────────────────────────────── */
+.ropa-field-warning {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+  padding: 6px 10px;
+  background: #FFFBEB;
+  border-radius: 6px;
+  font-size: 11.5px;
+  color: #92400E;
+}
+
+/* ── Sidebar cards ───────────────────────────────────────────────────── */
+.ropa-sidebar-card {
+  background: #fff;
+  border: 1px solid #E5E7EB;
+  border-radius: 12px;
+  padding: 18px;
+}
+
+.ropa-sidebar-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  margin: 0 0 12px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.ropa-sidebar-label {
+  font-size: 12px;
+  color: #6B7280;
+  margin: 8px 0 0;
+}
+
+.ropa-completion-ring {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+/* ── Source breakdown ────────────────────────────────────────────────── */
+.ropa-source-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0;
+}
+
+.ropa-source-count {
+  font-size: 12px;
+  color: #6B7280;
+  font-weight: 500;
+}
+
+/* ── Warnings list ───────────────────────────────────────────────────── */
+.ropa-warnings-card {
+  border-left: 3px solid #D97706;
+}
+
+.ropa-warnings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.ropa-warning-item {
+  padding: 6px 8px;
+  background: #FFFBEB;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.ropa-warning-item:hover { background: #FEF3C7; }
+
+.ropa-warning-field {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #92400E;
+}
+
+.ropa-warning-msg {
+  display: block;
+  font-size: 10.5px;
+  color: #B45309;
+  margin-top: 2px;
+}
+
+/* ── Export button ────────────────────────────────────────────────────── */
+.ropa-export-btn {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #991B1B, #7F1D1D);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 13.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.ropa-export-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(153,27,27,0.25);
+}
+
+.ropa-export-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Loading / Error states ──────────────────────────────────────────── */
+.ropa-loading, .ropa-error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  text-align: center;
+}
+
+.ropa-loading h2, .ropa-error h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1F2937;
+  margin: 16px 0 8px;
+  font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+}
+
+.ropa-loading p, .ropa-error p {
+  font-size: 13.5px;
+  color: #6B7280;
+}
+
+/* ── Responsive ──────────────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .ropa-layout { flex-direction: column; padding: 16px; }
+  .ropa-sidebar { width: 100%; }
+  .ropa-section-tabs { flex-wrap: wrap; }
+}

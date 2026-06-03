@@ -1,15 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
+import DarkModeToggle from './DarkModeToggle';
+import DevModeToggle from './DevModeToggle';
 
 export default function SelectionPage() {
   const navigate = useNavigate();
   const location = useLocation();
   const [images, setImages] = useState([]);
-  const imageIds = location.state?.imageIds || [];
+  // locationImageIds is used only for the initial fetch filter.
+  // For navigation, we always use `liveImageIds` derived from the actual DB response.
+  const locationImageIds = location.state?.imageIds || [];
 
-  useEffect(() => {
-    fetchImages();
-  }, []);
+  // Derive live IDs from what the DB actually has — avoids passing dead IDs
+  // that were deleted from the DB after a previous scan.
+  const liveImageIds = images.map(img => img.id);
 
   const fetchImages = async () => {
     const token = localStorage.getItem('token');
@@ -18,7 +22,9 @@ export default function SelectionPage() {
       return;
     }
     try {
-      const queryParam = imageIds.length > 0 ? `?ids=${imageIds.join(',')}` : '';
+      // If we have specific IDs from location state, filter by them.
+      // Otherwise fetch all images for this user.
+      const queryParam = locationImageIds.length > 0 ? `?ids=${locationImageIds.join(',')}` : '';
       const res = await fetch(`http://localhost:5000/api/images${queryParam}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -30,6 +36,14 @@ export default function SelectionPage() {
       console.error(e);
     }
   };
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    fetchImages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+
 
   const deleteImage = async (id) => {
     const token = localStorage.getItem('token');
@@ -50,7 +64,7 @@ export default function SelectionPage() {
     <>
       {/* SIBerNet Style Header */}
       <header className="w-full bg-sib-maroon flex-shrink-0 z-10 shadow-sm">
-        <div className="max-w-[1200px] mx-auto flex items-center px-5" style={{ height: '90px' }}>
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between px-5" style={{ height: '90px' }}>
           <img
             src="/SIB_Logo.png"
             alt="South Indian Bank"
@@ -59,6 +73,11 @@ export default function SelectionPage() {
             onClick={() => navigate('/')}
             onError={e => { e.currentTarget.style.display = 'none' }}
           />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <DarkModeToggle />
+            <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.18)', borderRadius: '1px' }} />
+            <DevModeToggle />
+          </div>
         </div>
       </header>
 
@@ -108,7 +127,7 @@ export default function SelectionPage() {
             </div>
             
             <div className="mt-4 pt-4 border-t border-gray-100">
-               <button onClick={() => navigate('/upload', { state: { imageIds } })} className="w-full py-2.5 px-4 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+               <button onClick={() => navigate('/upload')} className="w-full py-2.5 px-4 bg-white border border-gray-200 text-gray-700 text-sm font-semibold rounded-xl hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
                  Upload More
                </button>
@@ -131,7 +150,14 @@ export default function SelectionPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full stagger-r">
               
               {/* DPDP Compliance Card */}
-              <div className="group cursor-pointer bg-white rounded-2xl shadow-card hover:shadow-[0_20px_40px_rgba(176,30,35,0.08)] transition-all duration-300 border border-transparent hover:border-sib-maroon/20 overflow-hidden flex flex-col h-[280px]">
+              <div
+                className="group cursor-pointer bg-white rounded-2xl shadow-card hover:shadow-[0_20px_40px_rgba(176,30,35,0.08)] transition-all duration-300 border border-transparent hover:border-sib-maroon/20 overflow-hidden flex flex-col h-[280px]"
+                onClick={() => navigate('/dpdp/process', { state: { imageIds: liveImageIds } })}
+                role="button"
+                tabIndex={0}
+                onKeyDown={e => e.key === 'Enter' && navigate('/dpdp/process', { state: { imageIds: liveImageIds } })}
+                id="dpdp-compliance-card"
+              >
                 <div className="h-1.5 w-full bg-gradient-to-r from-[#C8282E] to-[#8A1519]"></div>
                 <div className="p-8 flex flex-col h-full">
                   <div className="w-12 h-12 rounded-xl bg-red-50 flex items-center justify-center text-sib-maroon mb-5 group-hover:scale-110 transition-transform duration-300">

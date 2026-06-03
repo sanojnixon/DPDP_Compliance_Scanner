@@ -1,6 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './login.css'
+import DarkModeToggle from './DarkModeToggle'
+import DevModeToggle from './DevModeToggle'
 
 /* ── Eye icon SVG paths ──────────────────────────────────────── */
 const EYE_OPEN = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
@@ -79,6 +81,7 @@ export default function LoginPage() {
       }
       
     } catch (err) {
+      console.error(err);
       setLoading(false)
       setAlertMsg('Failed to connect to the authentication server.')
       setAlertOn(true)
@@ -92,7 +95,7 @@ export default function LoginPage() {
           TOP HEADER — exact SIB portal bar
           ========================================================= */}
       <header className="w-full bg-sib-maroon flex-shrink-0 z-10">
-        <div className="max-w-[1200px] mx-auto flex items-center px-5" style={{ height: '90px' }}>
+        <div className="max-w-[1200px] mx-auto flex items-center justify-between px-5" style={{ height: '90px' }}>
           {/* Main Website Logo */}
           <img
             src="/SIB_Logo.png"
@@ -101,6 +104,11 @@ export default function LoginPage() {
             style={{ height: '71.5px' }}
             onError={e => { e.currentTarget.style.display = 'none' }}
           />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <DarkModeToggle />
+            <div style={{ width: '1px', height: '20px', background: 'rgba(255,255,255,0.18)', borderRadius: '1px' }} />
+            <DevModeToggle />
+          </div>
         </div>
       </header>
 

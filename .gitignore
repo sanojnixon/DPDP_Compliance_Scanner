@@ -4,3 +4,8 @@ credentials.json
 token.json
 __pycache__/
 *.pyc
+*.log
+.venv/
+.vscode/
+node_modules/
+dist/

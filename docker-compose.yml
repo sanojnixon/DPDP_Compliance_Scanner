@@ -18,6 +18,8 @@ services:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/dpdp_scanner
     depends_on:
       - db
+      - android
+      - appium
     volumes:
       - ./backend:/app
 
@@ -30,6 +32,34 @@ services:
     volumes:
       - ./dpdp-app:/app
       - /app/node_modules
+
+  android:
+    image: budtmo/docker-android:emulator_12.0
+    privileged: true
+    environment:
+      - EMULATOR_DEVICE=Samsung Galaxy S10
+      - WEB_VNC=true
+      # Remove -no-accel if KVM is available on the host for much better performance.
+      # Run: ls /dev/kvm && echo "KVM OK" to check.
+      # If KVM IS available, remove the EMULATOR_ARGS line and restore:
+      #   devices:
+      #     - /dev/kvm
+      - EMULATOR_ARGS=-no-accel -no-audio -no-window
+    ports:
+      - "6080:6080"   # noVNC debug viewer (open in browser to watch emulator)
+      - "5554:5554"   # ADB emulator port
+      - "5555:5555"   # ADB device port
+
+  appium:
+    image: appium/appium:latest
+    depends_on:
+      - android
+    ports:
+      - "4723:4723"
+    environment:
+      - ANDROID_SDK_ROOT=/opt/android-sdk
+    # network_mode: host removed — use bridge network so 'appium' hostname resolves
+    # within containers (apk_navigator.py uses APPIUM_SERVER = "http://appium:4723")
 
 volumes:
   postgres_data:

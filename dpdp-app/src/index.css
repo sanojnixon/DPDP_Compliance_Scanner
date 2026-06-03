@@ -1,1 +1,832 @@
-/* intentionally empty — all styles are in login.css */
+/* ============================================================
+   index.css — global resets, typography, and premium Dark Mode
+   ============================================================ */
+
+/* Baseline reset — ensures .dpdp-page-shell can use height: 100dvh */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+}
+
+#root {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   PREMIUM DARK MODE STYLES
+   ============================================================ */
+
+/* Global dark variables and background */
+html.dark,
+html.dark body {
+  background-color: #0b0f19 !important;
+  color: #f1f5f9 !important;
+}
+
+html.dark #root {
+  background-color: #0b0f19 !important;
+}
+
+/* Scrollbar styling for dark mode */
+html.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+html.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+html.dark ::-webkit-scrollbar-thumb {
+  background: #334155;
+  border-radius: 4px;
+}
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #475569;
+}
+
+/* --- 1. Login Page Dark Mode --- */
+html.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+html.dark .text-gray-900 {
+  color: #f3f4f6 !important;
+}
+
+html.dark .text-gray-800 {
+  color: #e5e7eb !important;
+}
+
+html.dark .text-gray-500 {
+  color: #9ca3af !important;
+}
+
+html.dark .text-gray-400 {
+  color: #d1d5db !important;
+}
+
+html.dark .bg-gray-100 {
+  background-color: #1f2937 !important;
+}
+
+html.dark .text-gray-300 {
+  color: #4b5563 !important;
+}
+
+html.dark .border-gray-100 {
+  border-color: #1f2937 !important;
+}
+
+html.dark .field-input {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .field-input:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+html.dark .icon-left {
+  color: #4b5563 !important;
+}
+
+html.dark .field-wrap:focus-within .icon-left {
+  color: #ef4444 !important;
+}
+
+html.dark .toggle-pw:hover {
+  color: #ef4444 !important;
+}
+
+html.dark .alert-box {
+  background-color: #7f1d1d22 !important;
+  border-color: #7f1d1d88 !important;
+  color: #fca5a5 !important;
+}
+
+/* --- 2. Upload and Selection Pages --- */
+html.dark .bg-\[\#F9FAFB\] {
+  background-color: #0b0f19 !important;
+}
+
+html.dark .bg-red-50\/50 {
+  background-color: rgba(127, 29, 29, 0.08) !important;
+}
+
+html.dark .bg-gray-200\/50 {
+  background-color: rgba(30, 41, 59, 0.2) !important;
+}
+
+html.dark aside,
+html.dark .bg-white.rounded-2xl {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark aside h3 {
+  color: #f3f4f6 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark aside button.bg-white {
+  background-color: #111827 !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark aside button.bg-white:hover {
+  background-color: #1f2937 !important;
+}
+
+html.dark .group.rounded-xl {
+  border-color: #334155 !important;
+  background-color: #1f2937 !important;
+}
+
+html.dark .group.rounded-xl .p-3 {
+  background-color: #111827 !important;
+}
+
+html.dark .group.rounded-xl p.text-gray-800 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .border-dashed {
+  background-color: #111827 !important;
+  border-color: #334155 !important;
+}
+
+html.dark .border-dashed:hover {
+  background-color: #1f2937 !important;
+}
+
+html.dark .border-dashed svg {
+  color: #64748b !important;
+}
+
+html.dark .border-dashed p.text-gray-700 {
+  color: #e2e8f0 !important;
+}
+
+html.dark .border-dashed .bg-white {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+}
+
+html.dark .border-dashed .bg-white p.text-gray-900 {
+  color: #e2e8f0 !important;
+}
+
+html.dark #dpdp-compliance-card,
+html.dark .group.cursor-pointer.bg-white {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark #dpdp-compliance-card:hover,
+html.dark .group.cursor-pointer.bg-white:hover {
+  border-color: rgba(181, 19, 26, 0.4) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark #dpdp-compliance-card h2,
+html.dark .group.cursor-pointer.bg-white h2 {
+  color: #f3f4f6 !important;
+}
+
+html.dark #dpdp-compliance-card .bg-red-50 {
+  background-color: rgba(127, 29, 29, 0.2) !important;
+}
+
+html.dark .group.cursor-pointer.bg-white .bg-gray-50 {
+  background-color: #1f2937 !important;
+}
+
+/* --- 3. Page Shell and Step Navigation --- */
+html.dark .dpdp-step-bar {
+  background-color: #111827 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .dpdp-step-circle {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+  color: #64748b !important;
+}
+
+html.dark .dpdp-step-line {
+  background-color: #334155 !important;
+}
+
+html.dark .dpdp-step-node.done .dpdp-step-circle,
+html.dark .dpdp-step-line.done {
+  background-color: #B5131A !important;
+  border-color: #B5131A !important;
+}
+
+html.dark .dpdp-step-node.active .dpdp-step-label {
+  color: #ef4444 !important;
+}
+
+html.dark .dpdp-step-node.done .dpdp-step-label {
+  color: #94a3b8 !important;
+}
+
+html.dark .dpdp-main {
+  background-color: #0b0f19 !important;
+}
+
+html.dark .dpdp-footer {
+  background-color: #070a10 !important;
+}
+
+/* --- 4. Process Page and PII Category Selection --- */
+html.dark .process-card {
+  background-color: #111827 !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4) !important;
+}
+
+html.dark .process-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .process-subtitle {
+  color: #9ca3af !important;
+}
+
+html.dark .process-option-btn {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+}
+
+html.dark .process-option-btn:hover {
+  background-color: rgba(181, 19, 26, 0.08) !important;
+  border-color: #B5131A !important;
+}
+
+html.dark .process-option-btn.selected {
+  background-color: rgba(181, 19, 26, 0.12) !important;
+  border-color: #B5131A !important;
+}
+
+html.dark .process-option-icon {
+  background-color: rgba(181, 19, 26, 0.18) !important;
+}
+
+html.dark .process-option-btn.selected .process-option-icon {
+  background-color: #B5131A !important;
+}
+
+html.dark .process-option-label {
+  color: #e5e7eb !important;
+}
+
+html.dark .process-option-btn.selected .process-option-label {
+  color: #ef4444 !important;
+}
+
+html.dark .process-input-label {
+  color: #e5e7eb !important;
+}
+
+html.dark .process-input {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .process-input:focus {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* PII category list panel */
+html.dark .pii-panel {
+  background-color: #111827 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+html.dark .pii-panel-header {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .pii-panel-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .pii-panel-subtitle {
+  color: #9ca3af !important;
+}
+
+html.dark .pii-category {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .pii-category-header:hover {
+  background-color: #1f2937 !important;
+}
+
+html.dark .pii-category-name {
+  color: #e5e7eb !important;
+}
+
+html.dark .pii-category-count {
+  background-color: #1f2937 !important;
+  color: #9ca3af !important;
+}
+
+html.dark .pii-category-count.has-selected {
+  background-color: rgba(181, 19, 26, 0.2) !important;
+  color: #fca5a5 !important;
+}
+
+html.dark .pii-item-row:hover {
+  background-color: #1f2937 !important;
+}
+
+html.dark .pii-checkbox {
+  border-color: #4b5563 !important;
+  background-color: #1f2937 !important;
+}
+
+html.dark .pii-checkbox.checked {
+  background-color: #B5131A !important;
+  border-color: #B5131A !important;
+}
+
+html.dark .pii-item-label {
+  color: #9ca3af !important;
+}
+
+html.dark .pii-item-row:hover .pii-item-label {
+  color: #f3f4f6 !important;
+}
+
+/* PII Sidebar and summary cards */
+html.dark .pii-summary-card,
+html.dark .pii-custom-card,
+html.dark .pii-proceed-card {
+  background-color: #111827 !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+html.dark .pii-summary-title,
+html.dark .pii-custom-title {
+  color: #f3f4f6 !important;
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .pii-chip {
+  background-color: rgba(181, 19, 26, 0.2) !important;
+  border-color: rgba(181, 19, 26, 0.3) !important;
+  color: #fca5a5 !important;
+}
+
+html.dark .pii-chip-remove {
+  color: #fca5a5 !important;
+}
+
+html.dark .pii-selected-count {
+  border-top-color: #1e293b !important;
+  color: #9ca3af !important;
+}
+
+html.dark .pii-selected-count strong {
+  color: #ef4444 !important;
+}
+
+html.dark .pii-custom-input {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .pii-custom-input:focus {
+  border-color: #ef4444 !important;
+}
+
+/* --- 5. Result Page Dark Mode --- */
+html.dark .ocr-results-main {
+  color: #e5e7eb !important;
+}
+
+html.dark .ocr-summary-banner {
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2) !important;
+}
+
+html.dark .ocr-summary-val {
+  color: #f3f4f6 !important;
+}
+
+html.dark .ocr-summary-key {
+  color: #94a3b8 !important;
+}
+
+html.dark .ocr-summary-divider {
+  background-color: #1e293b !important;
+}
+
+html.dark .pii-risk-count-chip {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+
+html.dark .pii-view-tabs {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .pii-view-tab {
+  color: #94a3b8 !important;
+}
+
+html.dark .pii-view-tab:hover {
+  color: #f1f5f9 !important;
+}
+
+html.dark .pii-view-tab.active {
+  color: #f3f4f6 !important;
+  border-bottom-color: #ef4444 !important;
+}
+
+html.dark .pii-analysis-panel {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+}
+
+/* Verdict panels & custom cards in result screen */
+html.dark .ai-analysis-wrap {
+  color: #e5e7eb !important;
+}
+
+html.dark .ai-analysis-wrap [style*="color: rgb(31, 41, 55)"],
+html.dark .ai-analysis-wrap [style*="color: rgb(17, 24, 39)"] {
+  color: #f3f4f6 !important;
+}
+
+html.dark .ai-analysis-wrap [style*="color: rgb(75, 85, 99)"] {
+  color: #9ca3af !important;
+}
+
+html.dark .ai-analysis-wrap [style*="background: rgb(240, 253, 244)"] {
+  background-color: rgba(22, 163, 74, 0.1) !important;
+}
+
+html.dark .ai-analysis-wrap [style*="background: rgb(254, 242, 242)"] {
+  background-color: rgba(127, 29, 29, 0.15) !important;
+}
+
+html.dark .ai-analysis-wrap [style*="background: rgb(255, 251, 235)"] {
+  background-color: rgba(217, 119, 6, 0.1) !important;
+}
+
+html.dark .dpdp-violation-card {
+  background-color: #1f2937 !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .dpdp-violation-card [style*="color: rgb(31, 41, 55)"] {
+  color: #f3f4f6 !important;
+}
+
+html.dark .dpdp-violation-card [style*="background: rgb(243, 244, 246)"] {
+  background-color: #111827 !important;
+  color: #9ca3af !important;
+}
+
+/* AI Posture summary panels */
+html.dark .ai-summary-panel {
+  background-color: #1e1b4b !important;
+  border-color: #312e81 !important;
+}
+
+html.dark .ai-summary-text {
+  color: #e0e7ff !important;
+}
+
+html.dark .ai-purpose-card,
+html.dark .ai-list-card {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+html.dark .ai-purpose-card p,
+html.dark .ai-list-card li {
+  color: #d1d5db !important;
+}
+
+html.dark .ai-exposure-pill.ok {
+  background-color: rgba(22, 163, 74, 0.15) !important;
+  color: #4ade80 !important;
+}
+
+html.dark .ai-exposure-pill.risk {
+  background-color: rgba(220, 38, 38, 0.15) !important;
+  color: #f87171 !important;
+}
+
+html.dark .ai-finding-row {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+html.dark .ai-finding-body {
+  background-color: #111827 !important;
+}
+
+/* Sidebar config cards */
+html.dark .ocr-config-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+}
+
+/* PII List Entities list in result tab */
+html.dark .pii-cat-group {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+html.dark .pii-cat-group-header {
+  background-color: #111827 !important;
+  border-bottom-color: #374151 !important;
+}
+
+html.dark .pii-cat-group-name {
+  color: #f3f4f6 !important;
+}
+
+html.dark .pii-entity-row {
+  border-bottom-color: #374151 !important;
+}
+
+html.dark .pii-entity-row:hover {
+  background-color: #111827 !important;
+}
+
+html.dark .pii-entity-type {
+  color: #f3f4f6 !important;
+}
+
+html.dark .pii-entity-val {
+  color: #cbd5e1 !important;
+}
+
+html.dark .pii-entity-detail {
+  background-color: #111827 !important;
+  border-top-color: #374151 !important;
+}
+
+html.dark .ocr-detail-row {
+  border-bottom-color: #1f2937 !important;
+}
+
+html.dark .ocr-detail-key {
+  color: #9ca3af !important;
+}
+
+html.dark .ocr-detail-val {
+  color: #e5e7eb !important;
+}
+
+/* OCR pre formatted text and highlighting */
+html.dark .ocr-fulltext-card,
+html.dark .ocr-fulltext-body {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  color: #e5e7eb !important;
+}
+
+html.dark .ocr-fulltext-header {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .ocr-fulltext-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .pii-highlighted-text {
+  background-color: #111827 !important;
+}
+
+html.dark .ocr-block {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+}
+
+html.dark .ocr-block-header {
+  color: #e5e7eb !important;
+}
+
+html.dark .ocr-block-index {
+  background-color: #111827 !important;
+  color: #9ca3af !important;
+}
+
+/* View block tabs */
+html.dark .ocr-toggle-btn {
+  background-color: #111827 !important;
+  border-color: #374151 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .ocr-toggle-btn.active {
+  background-color: #B5131A !important;
+  color: #fff !important;
+}
+
+/* Loading & Error Screens */
+html.dark .ocr-loading-card,
+html.dark .ocr-error-card {
+  background-color: #111827 !important;
+  border: 1px solid #1e293b !important;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.4) !important;
+}
+
+html.dark .ocr-loading-title,
+html.dark .ocr-error-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .ocr-loading-subtitle,
+html.dark .ocr-error-msg {
+  color: #9ca3af !important;
+}
+
+html.dark .ocr-back-btn {
+  background-color: #1f2937 !important;
+  border-color: #374151 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .ocr-back-btn:hover {
+  background-color: #334155 !important;
+}
+
+/* --- 6. ROPA Preview Page Dark Mode --- */
+html.dark .ropa-main {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+html.dark .ropa-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .ropa-subtitle {
+  color: #9ca3af !important;
+}
+
+html.dark .ropa-section-tabs {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .ropa-section-tab {
+  background-color: #111827 !important;
+  color: #9ca3af !important;
+  border-color: #1e293b !important;
+}
+
+html.dark .ropa-section-tab:hover {
+  background-color: #1f2937 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .ropa-section-tab.active {
+  background-color: #B5131A !important;
+  color: #fff !important;
+  border-color: #B5131A !important;
+}
+
+html.dark .ropa-tab-count {
+  background-color: #1f2937 !important;
+  color: #64748b !important;
+}
+
+html.dark .ropa-section-tab.active .ropa-tab-count {
+  background-color: rgba(255,255,255,0.2) !important;
+  color: #fff !important;
+}
+
+html.dark .ropa-field-card {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+}
+
+html.dark .ropa-field-label {
+  color: #cbd5e1 !important;
+}
+
+html.dark .ropa-value-text {
+  color: #f1f5f9 !important;
+}
+
+html.dark .ropa-field-empty {
+  background-color: rgba(181, 19, 26, 0.04) !important;
+  border-color: rgba(181, 19, 26, 0.2) !important;
+}
+
+html.dark .ropa-value-empty {
+  color: rgba(248, 113, 113, 0.6) !important;
+}
+
+html.dark .ropa-sidebar-card {
+  background-color: #111827 !important;
+  border-color: #1e293b !important;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3) !important;
+}
+
+html.dark .ropa-sidebar-title {
+  color: #f3f4f6 !important;
+}
+
+html.dark .ropa-sidebar-label {
+  color: #9ca3af !important;
+}
+
+html.dark .ropa-source-row {
+  border-bottom-color: #1e293b !important;
+}
+
+html.dark .ropa-source-count {
+  color: #cbd5e1 !important;
+}
+
+html.dark .ropa-field-edit textarea,
+html.dark .ropa-field-edit input {
+  background-color: #111827 !important;
+  border-color: #334155 !important;
+  color: #f3f4f6 !important;
+}
+
+html.dark .ropa-field-edit textarea:focus,
+html.dark .ropa-field-edit input:focus {
+  border-color: #ef4444 !important;
+}
+
+html.dark .ropa-cancel-btn {
+  background-color: #1f2937 !important;
+  border-color: #334155 !important;
+  color: #cbd5e1 !important;
+}
+
+html.dark .ropa-cancel-btn:hover {
+  background-color: #334155 !important;
+}
+
+/* ============================================================
+   DEV MODE TOGGLE — premium header toggle matching DarkModeToggle
+   ============================================================ */
+
+/* Base toggle button — dimensions match DarkModeToggle (40×40 circle) */
+.dev-mode-toggle {
+  position: relative;
+}
+
+/* "Dev" label pill — sits below the icon circle */
+.dev-mode-label {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  font-size: 7.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 1px 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.45);
+  line-height: 1.2;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  pointer-events: none;
+}
+
+/* Active pill — emerald glow when dev mode is ON */
+.dev-mode-label.active {
+  background: rgba(16, 185, 129, 0.25);
+  color: #34d399;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.25);
+}
+
+/* Hover state: slight scale lift */
+.dev-mode-toggle:hover .dev-mode-label.active {
+  background: rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+}
+
+/* --- Dark mode: DevModeToggle retains the same look on dark backgrounds --- */
+html.dark .dev-mode-label {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.35);
+}
+
+html.dark .dev-mode-label.active {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
