@@ -1,4 +1,4 @@
-# DPDP Compliance Scanner & Accessibility Auditor
+# DPDP Compliance Scanner 
 
 An automated, full-stack compliance auditor designed to scan and verify mobile banking applications for compliance with India's **Digital Personal Data Protection (DPDP) Act, 2023** and audit accessibility guidelines.
 
